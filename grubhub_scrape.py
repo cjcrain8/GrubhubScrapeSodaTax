@@ -56,7 +56,6 @@ def get_done_lists(area, scrape_name):
 	try:
 		df = pd.read_csv(done_list_name)
 		done_list = df['done'].tolist()
-		#print(done_list)
 	except:
 		file = open(done_list_name, 'w')
 		file.write("done" + "," + "\n")
@@ -137,7 +136,7 @@ def search_for_restaurants(driver, zip):
 		no_thanks = "na"
 			
 	
-	try:
+
 		WebDriverWait(driver, delay).until(
 			EC.presence_of_element_located(
 			(By.CLASS_NAME, 'icon-close')
@@ -165,7 +164,6 @@ def search_for_restaurants(driver, zip):
 		
 	except:
 
-		# no_service = driver.find_element_by_class_name('no-searchResults-banner-text')
 		return False
 		
 
@@ -218,7 +216,6 @@ def get_list(driver):
 			except:
 				time.sleep(5)
 				restaurants_on_page = len(driver.find_elements_by_xpath('//*[contains(@class,"restaurantCard-primaryInfo-item")]//a'))
-			# print("# rests on page: %s" %restaurants_on_page)
 			i = 0
 			while i < (restaurants_on_page):
 				# print(i)
@@ -271,9 +268,7 @@ def get_list(driver):
 			restaurants_on_page = len(driver.find_elements_by_xpath('//*[contains(@class,"restaurantCard-primaryInfo-item")]//a'))
 		i=0
 		while i < (restaurants_on_page):
-			# print(i)
 			url = str(driver.find_elements_by_xpath('//*[contains(@class,"restaurantCard-primaryInfo-item")]//a')[i].get_attribute('href'))
-			# print(url)
 			url_list.append(url)	
 			i+=1
 			
