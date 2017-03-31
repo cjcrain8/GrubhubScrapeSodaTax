@@ -4,4 +4,4 @@ set today=%Month%.%Day%.%Year%
 echo %today%
 
 
-schtasks /create /sc once /ri 5 /tn "GrubhubSodaTax"  /st 12:00 /tr "D:\Grubhub_SodaTax_Grubhub_Scrapes\start_direct.cmd co_plus %today%
+schtasks /create /sc once /ri 5 /tn "GrubhubSodaTax"  /st 12:00 /DU 24:00 /tr "D:\Grubhub_SodaTax_Grubhub_Scrapes\start_direct.cmd co_plus %today%
